@@ -1,0 +1,7 @@
+Options All -Indexes
+
+RewriteEngine On
+
+RewriteBase /MasterMVC_RHproject/
+
+RewriteRule ^([-a-zA-Z0-9]+)$ index.php?page=$1
