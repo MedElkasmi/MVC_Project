@@ -16,22 +16,20 @@ class vacation {
             self::$stmt->bindParam(':full_name',$data['employe_name']);
             self::$stmt->execute();
         
-            $id_employe = self::$stmt->fetch(PDO::FETCH_OBJ);
+            $obj = self::$stmt->fetch(PDO::FETCH_OBJ);
 
-            if(!$id_employe) {
+            if(!$obj->id_employe) {
                 echo 'Employe was not found';
                 die;
             }
 
-            implode(",",$id_employe);
 
-
-            self::$query = 'INSERT INTO vacation(employe_name, id_employe vacation_start, vacation_end, vacation_pointer, vacation_estimated, days_available, vacation_status, created_at) 
+            self::$query = 'INSERT INTO vacation(employe_name, id_employe, vacation_start, vacation_end, vacation_pointer, vacation_estimated, days_available, vacation_status, created_at) 
             VALUES (:employe_name, :id_employe, :vacation_start, :vacation_end, :vacation_pointer, :vacation_estimated, :days_available, :vacation_status, :created_at)';
 
             self::$stmt = DB::connect()->prepare(self::$query);
             self::$stmt->bindParam(':employe_name',$data['employe_name']);
-            self::$stmt->bindParam(':id_employe',$id_employe);
+            self::$stmt->bindParam(':id_employe',$obj->id_employe);
             self::$stmt->bindParam(':vacation_start',$data['vacation_start']);
             self::$stmt->bindParam(':vacation_end',$data['vacation_end']);
             self::$stmt->bindParam(':vacation_pointer',$data['vacation_pointer']);
