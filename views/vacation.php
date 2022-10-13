@@ -3,7 +3,7 @@
   include('./views/includes/content.php');
 
   $vacation = new VacationController();
-  $data = $vacation->showvacation();
+  $data = $vacation->Show_Vacation();
 
   if(isset($_POST['addtolist'])) {
       $vacation = new VacationController();
@@ -12,7 +12,7 @@
 
   if(isset($_POST['refresh'])) {
       $vacation = new VacationController();
-      $vacation->refreshdata();
+      $vacation->Refresh_Data();
   }
 
 ?>

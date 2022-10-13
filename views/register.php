@@ -8,7 +8,7 @@
 ?>
 
 <body id="login">
-    <div class="leftHalf">
+    <div class="leftHalf_register">
         <div class="content">
 
         </div>

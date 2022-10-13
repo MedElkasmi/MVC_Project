@@ -4,13 +4,13 @@ class EmployeController {
 
     public function getAllemployes(){
 
-        $reply = employe::getAll();
+        $reply = employe::em_Get();
         return $reply;
     }
 
     public function deletedemployes(){
 
-        $reply = employe::getDeleted();
+        $reply = employe::em_deleted();
         return $reply;
     }
 
@@ -19,14 +19,14 @@ class EmployeController {
             $data = array(
                 'id_employe' => $_POST['restore']
             );
-            employe::restore($data);
+            employe::em_restore($data);
             Redirect::to('archive');
         }
     }
 
     public function countEmployes(){
 
-        $reply = employe::count();
+        $reply = employe::em_count();
         return $reply;
     }
 
@@ -37,7 +37,7 @@ class EmployeController {
                 'id_employe' => $_POST['id']
             );
 
-            $employe = employe::getone($data);
+            $employe = employe::em_getby($data);
 
             return $employe;
         }
@@ -76,7 +76,7 @@ class EmployeController {
                     }
                 }
                 if(isset($empty) && $empty === true) {
-                    employe::add($data);
+                    employe::em_add($data);
                     Redirect::to("hresoures");
                 }
 
@@ -101,7 +101,7 @@ class EmployeController {
                 'updated_at' => date("Y-m-d")
             );
 
-            $reply = employe::update($data);
+            $reply = employe::em_update($data);
 
             if($reply == true){
 
@@ -122,7 +122,7 @@ class EmployeController {
                 'deleted_at'=> date("Y-m-d")
             );
 
-            $reply = employe::delete($data);
+            $reply = employe::em_delete($data);
 
 
             if($reply === true){

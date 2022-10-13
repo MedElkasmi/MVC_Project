@@ -53,6 +53,11 @@ class AdminController {
             } 
         }
     }
+
+    public function admin_show(){
+        $admin = admin::show();
+        return $admin;
+    }
 }
 
 ?>

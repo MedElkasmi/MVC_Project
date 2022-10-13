@@ -2,81 +2,7 @@
 
 class employe{
 
-
-    static public function getAll(){
-
-        try {
-
-            $stmt = DB::connect()->prepare('SELECT * FROM employe_data WHERE deleted_at IS NULL');
-            $stmt->execute();
-    
-            return $stmt->fetchAll();
-        }
-
-        catch(PDOException $e) {
-
-        }
-
-    }
-
-    static public function count(){
-        try {
-
-            $stmt = DB::connect()->prepare('SELECT COUNT(*) as total FROM employe_data WHERE deleted_at IS NULL');
-            
-            $stmt->execute();
-
-            $reply = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            return $reply;
-
-            
-        }
-
-        catch(PDOException $e) {
-
-        }
-    }
-
-    static public function getone($data){
-
-        try {
-
-            $id = $data['id_employe'];
-
-
-            $stmt = DB::connect()->prepare('SELECT * FROM employe_data WHERE id_employe=:id_employe');
-            $stmt->execute(array(':id_employe' => $id));
-    
-            $reply = $stmt->fetch(PDO::FETCH_OBJ);
-    
-            return $reply;
-        }
-
-        catch(PDOException $e) {
-
-            echo 'Something is wrong ' . $e->getMessage();
-            $stmt = null;
-        }
-
-    }
-
-    static public function getDeleted(){
-        try {
-
-            $stmt = DB::connect()->prepare('SELECT * FROM employe_data WHERE deleted_at IS NOT NULL');
-            $stmt->execute();
-    
-            return $stmt->fetchAll();
-        }
-
-        catch(PDOException $e) {
-            echo 'Something is wrong ' . $e->getMessage();
-            $stmt = null;
-        }
-    }
-
-    static public function add($data) {
+    static public function em_add($data) {
 
         try {
 
@@ -111,7 +37,7 @@ class employe{
         }
     }
 
-    static public function update($data) {
+    static public function em_update($data) {
 
         try {
 
@@ -148,7 +74,7 @@ class employe{
     }
 
 
-    static public function delete($data) {
+    static public function em_delete($data) {
 
         try {
 
@@ -169,12 +95,67 @@ class employe{
         }
     }
 
-    static public function restore($data){
+    static public function em_restore($data){
+
         try {
 
             $stmt = DB::connect()->prepare('UPDATE employe_data set deleted_at = NULL WHERE id_employe=:id_employe');
             $stmt->bindParam(':id_employe',$data['id_employe']);
             $stmt->execute();    
+        }
+
+        catch(PDOException $e) {
+            echo 'Something is wrong ' . $e->getMessage();
+            $stmt = null;
+        }
+    }
+
+    static public function em_Get(){
+
+        $stmt = DB::connect()->prepare('SELECT * FROM employe_data WHERE deleted_at IS NULL');
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
+    static public function em_count(){
+
+        $stmt = DB::connect()->prepare('SELECT COUNT(*) as total FROM employe_data WHERE deleted_at IS NULL');
+        $stmt->execute();
+        $reply = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $reply;
+  
+    }
+
+    static public function em_getby($data){
+
+        try {
+
+            $id = $data['id_employe'];
+            $stmt = DB::connect()->prepare('SELECT * FROM employe_data WHERE id_employe=:id_employe');
+            $stmt->execute(array(':id_employe' => $id));
+            $reply = $stmt->fetch(PDO::FETCH_OBJ);
+    
+            return $reply;
+        }
+
+        catch(PDOException $e) {
+
+            echo 'Something is wrong ' . $e->getMessage();
+            $stmt = null;
+        }
+
+    }
+
+    static public function em_deleted(){
+
+        try {
+            
+            $stmt = DB::connect()->prepare('SELECT * FROM employe_data WHERE deleted_at IS NOT NULL');
+            $stmt->execute();
+    
+            return $stmt->fetchAll();
         }
 
         catch(PDOException $e) {

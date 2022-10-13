@@ -7,7 +7,7 @@ include('./views/includes/content.php');
 
 ?>
 
-<div class="manage container main-table table-responsive">
+<div class="container manage main-table table-responsive">
 <div style="padding-top:70px;">
   <canvas id="myChart"></canvas>
 </div>

@@ -6,21 +6,19 @@ class vacation {
     protected static $query_id = '';
     protected static $stmt = '';
 
-    public static function add($data){
+    public static function va_add($data){
 
         try {
+                self::$query_id = 'SELECT id_employe FROM employe_data WHERE full_name = :full_name';
+                self::$stmt = DB::connect()->prepare(self::$query_id);
+                self::$stmt->bindParam(':full_name',$data['employe_name']);
+                self::$stmt->execute();
+            
+                $obj = self::$stmt->fetch(PDO::FETCH_OBJ);
 
-
-            self::$query_id = 'SELECT id_employe FROM employe_data WHERE full_name = :full_name';
-            self::$stmt = DB::connect()->prepare(self::$query_id);
-            self::$stmt->bindParam(':full_name',$data['employe_name']);
-            self::$stmt->execute();
-        
-            $obj = self::$stmt->fetch(PDO::FETCH_OBJ);
-
-            if(!$obj->id_employe) {
-                echo 'Employe was not found';
-                die;
+                if(!$obj->id_employe) {
+                    echo 'Employe was not found';
+                    die;
             }
 
 
@@ -77,7 +75,7 @@ class vacation {
         }
     }
 
-    public static function show(){
+    public static function va_show(){
         try {
 
             self::$stmt = DB::connect()->prepare('SELECT * FROM vacation');
@@ -91,7 +89,15 @@ class vacation {
         }
     }
 
-    public static function id_employe($data){}
+    static public function va_count(){
+
+        $stmt = DB::connect()->prepare('SELECT COUNT(*) as total FROM vacation WHERE deleted_at IS NULL');
+        $stmt->execute();
+        $va_count = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $va_count;
+  
+    }
 
 
 }

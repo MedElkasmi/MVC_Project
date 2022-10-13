@@ -22,7 +22,8 @@ $home = new HomeController();
             'admins',
             'logout',
             'register',
-            'archive'
+            'archive',
+            'adminlist'
         ];
 
             if(isset($_SESSION['logged']) && $_SESSION['logged'] === true ){
@@ -38,10 +39,15 @@ $home = new HomeController();
                 }
 
             }
-            
-            else {
+
+            elseif(isset($_SESSION['username'])){
+                $home->index('register');
+            }
+
+            else{
                 $home->index('login');
             }
+            
             
             require_once './views/includes/footer.php';
 

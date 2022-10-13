@@ -2,10 +2,13 @@
 <?php 
 
 $data = new EmployeController();
-$count = $data->countEmployes();
+$count_em = $data->countEmployes();
 
 $user = new AdminController();
 $session = $user->auth();
+
+$data = new VacationController();
+$count_va = $data->Vacation_Count();
 
 
 ?>
@@ -22,22 +25,21 @@ $session = $user->auth();
 <div id="sidebar" class="sidebar">
     <div class="links">
         <a href="#" class="active"><i class="fa fa-cog"></i> Setting</a>
-        <a href=""><i class="fa fa-user-circle"></i> Create Admin</a>
-        <a href=""><i class="fa fa-users"></"></i> List of admins</a>
+        <a href="<?php echo BASE_URL; ?>register"<i class="fa fa-user-circle"></i> Create Admin</a>
+        <a href="<?php echo BASE_URL; ?>adminlist"><i class="fa fa-users"></"></i> List of admins</a>
         <a href=""><i class="fa fa-globe"></i> Langaugaes</a>
     </div>
     <i class="fa fa-gear"></i>
 </div>
 
 <div class="container">
-
 <header class="panel-block row">
         <div class="col-sm-6">
         <a href="<?php echo BASE_URL; ?>">Back To Home</a>
             <div class="panel" style="background-color:#33b5e5;">
                     <div style="float: left;">
-                        <h3>Employees</h3>
-                        <h3><?php echo $count['total']; ?></h3>
+                        <h3>Employes</h3>
+                        <h3><?php echo $count_em['total']; ?></h3>
                     </div>
                     <i class="fa fa-users fa-4x" style="float:right;"></i>
                 </div>
@@ -47,7 +49,7 @@ $session = $user->auth();
             <div class="panel" style="background-color:#00C851;">
                 <div style="float: left;">
                     <h3>Vacation</h3>
-                    <h3><?php  ?></h3>
+                    <h3><?php echo $count_va['total']; ?></h3>
                 </div>
                 <i class="fa fa-plane fa-4x" style="float:right;"></i>
             </div>

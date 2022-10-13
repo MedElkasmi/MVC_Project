@@ -28,6 +28,16 @@
     background-size: cover;
 }
 
+.leftHalf_register {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    float: left;
+    background-image: url('../images/register_bg.jpg');
+    background-size: cover;
+}
+
 .leftHalf .content {
     width: 50%;
     display: block;

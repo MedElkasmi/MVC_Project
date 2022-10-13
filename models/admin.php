@@ -54,8 +54,24 @@ class admin {
         
     }
 
-    static public function update(){
-        
+    static public function show(){
+
+        try {
+
+            $stmt = DB::connect()->prepare('SELECT * FROM admins WHERE deleted_at is null');    
+            if($stmt->execute()){
+
+                $admin = $stmt->fetchAll();
+
+                return $admin;
+            }
+        }
+
+        catch(PDOException $e) {
+
+            echo 'Something is wrong ' . $e->getMessage();
+            $stmt = null;
+        }
     }
 
     static public function delete(){
