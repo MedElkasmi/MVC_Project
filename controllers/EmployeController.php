@@ -44,6 +44,36 @@ class EmployeController {
 
     }
 
+    public function count_team_leader(){
+
+        $reply = employe::team_leader();
+        return $reply;
+    }
+
+    public function count_mailers(){
+
+        $reply = employe::mailers();
+        return $reply;
+    }
+
+    public function count_offer_manager(){
+
+        $reply = employe::offer_manager();
+        return $reply;
+    }
+
+    public function count_security(){
+
+        $reply = employe::security();
+        return $reply;
+    }
+
+    public function count_it(){
+
+        $reply = employe::it();
+        return $reply;
+    }
+
     public function addNewEmploye(){
         if(isset($_POST['submit'])){
                 $data = array(

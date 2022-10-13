@@ -82,7 +82,7 @@ if(isset($_POST['submit'])){
                 <input type="radio" name="skills" value="TeamLeader"> TeamLeader<br>
                 <input type="radio" name="skills" value="Mailer"> Mailer<br>
                 <input type="radio" name="skills" value="Offer_Manager"> Offer Manager<br>
-                <input type="radio" name="skills" value="Security"> Security<br>
+                <input type="radio" name="skills" value="Securite"> Security<br>
                 <input type="radio" name="skills" value="IT"> IT<br>
             </div>
             <hr>

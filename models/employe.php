@@ -164,6 +164,55 @@ class employe{
         }
     }
 
+    static public function team_leader(){
+
+        $stmt = DB::connect()->prepare('SELECT COUNT(*) as teamleader FROM employe_data WHERE skills = "TeamLeader"');
+        $stmt->execute();
+        $reply = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $reply;
+  
+    }
+
+    static public function mailers(){
+
+        $stmt = DB::connect()->prepare('SELECT COUNT(*) as mailers FROM employe_data WHERE skills = "Mailer"');
+        $stmt->execute();
+        $reply = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $reply;
+  
+    }
+
+    static public function offer_manager(){
+
+        $stmt = DB::connect()->prepare('SELECT COUNT(*) as offer_manager FROM employe_data WHERE skills = "Offer_Manager"');
+        $stmt->execute();
+        $reply = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $reply;
+  
+    }
+
+    static public function security(){
+
+        $stmt = DB::connect()->prepare('SELECT COUNT(*) as securite FROM employe_data WHERE skills = "securite"');
+        $stmt->execute();
+        $reply = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $reply;
+  
+    }
+
+    static public function it(){
+
+        $stmt = DB::connect()->prepare('SELECT COUNT(*) as IT FROM employe_data WHERE skills = "IT"');
+        $stmt->execute();
+        $reply = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $reply;
+  
+    }
 
 
 

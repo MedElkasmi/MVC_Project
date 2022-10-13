@@ -5,6 +5,21 @@ include('./views/includes/content.php');
   $data = new EmployeController();
   $all = $data->getAllemployes();
 
+  $data = new EmployeController();
+  $team_leader = $data->count_team_leader();
+
+  $data = new EmployeController();
+  $mailers = $data->count_mailers();
+
+  $data = new EmployeController();
+  $offer_managers = $data->count_offer_manager();
+
+  $data = new EmployeController();
+  $security_team = $data->count_security();
+
+  $data = new EmployeController();
+  $cont_it = $data->count_it();
+
 ?>
 
 <div class="container manage main-table table-responsive">
@@ -50,4 +65,12 @@ include('./views/includes/content.php');
       </tr>
       <?php endforeach; ?>
   </table>
+
+      <div id="team_leader" style="display: none;"> <?php echo $team_leader['teamleader'];?> </div>
+      <div id="mailers" style="display: none;"> <?php echo  $mailers['mailers'];?> </div>
+      <div id="offer_manager" style="display: none;"> <?php echo $offer_managers['offer_manager'];?> </div>
+      <div id="securite" style="display: none;"> <?php echo $security_team['securite'];?> </div>
+      <div id="count_it" style="display: none;"> <?php echo $cont_it['IT'];?> </div>
+
+
 </div>

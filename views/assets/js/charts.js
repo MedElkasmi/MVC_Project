@@ -1,11 +1,26 @@
 
 // DATA CHART BELONG TO hresoures PAGE
 
+var div = document.getElementById("team_leader");
+var team_leader = div.textContent;
+
+var div = document.getElementById("mailers");
+var mailers = div.textContent;
+
+var div = document.getElementById("offer_manager");
+var offer_manager = div.textContent;
+
+var div = document.getElementById("securite");
+var securite = div.textContent;
+
+var div = document.getElementById("count_it");
+var count_it = div.textContent;
+
 const labels = [
     'TeamLeader',
     'Mailers',
     'Offer Manager',
-    'Security',
+    'securite',
     ' IT TEAM'
   ];
 
@@ -14,7 +29,7 @@ const labels = [
     labels: labels,
     datasets: [{
       label: 'Employes Data',
-      data: [0, 10, 5, 2, 20],
+      data: [team_leader, mailers, offer_manager, securite, count_it],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
