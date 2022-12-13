@@ -7,6 +7,9 @@ The back end was about MVC partten and Mysql using classes and methods with bunc
 
 This is screenshot of UI dashboard was taken before : 
 
-https://i.imgur.com/KuPVbbt.jpg
+
+<p align="center">
+  <img src="https://i.imgur.com/KuPVbbt.jpg" width="350" alt="accessibility text">
+</p>
 
 Next step is to clone this project using Laravel in order to pratice more concepts.
