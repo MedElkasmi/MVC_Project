@@ -9,7 +9,7 @@ This is screenshot of UI dashboard was taken before :
 
 
 <p align="center">
-  <img src="https://i.imgur.com/KuPVbbt.jpg" width="350" alt="accessibility text">
+  <img src="https://i.imgur.com/KuPVbbt.jpg" width="600" alt="accessibility text">
 </p>
 
 Next step is to clone this project using Laravel in order to pratice more concepts.
