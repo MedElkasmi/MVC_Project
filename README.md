@@ -8,3 +8,5 @@ This is screenshot of UI dashboard was taken before :
 </p>
 
 Next step is to clone this project using Laravel in order to pratice more concepts.
+
+Please note that this project is a work in progress and may not be complete or fully functional at this time.
